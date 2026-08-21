@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Резюме — Константин Усов</title>
+<style>
+  :root{
+    --bg:#0f1418;
+    --panel:#161d24;
+    --border:#263038;
+    --text:#e8edf2;
+    --muted:#9aa7b3;
+    --accent:#4da3ff;
+    --accent-soft:rgba(77,163,255,0.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.55;
+    padding:32px 16px;
+  }
+  .page{
+    max-width:860px;
+    margin:0 auto;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:48px 52px;
+    box-shadow:0 12px 40px rgba(0,0,0,0.45);
+  }
+  @media(max-width:640px){ .page{padding:28px 20px;} }
+
+  header{
+    border-bottom:2px solid var(--accent);
+    padding-bottom:22px;
+    margin-bottom:28px;
+  }
+  h1{
+    font-size:34px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    margin-bottom:6px;
+  }
+  .desired{
+    font-size:17px;
+    color:var(--accent);
+    font-weight:600;
+    margin-bottom:4px;
+  }
+  .salary{ color:var(--muted); font-size:15px; margin-top:6px; }
+
+  .contacts{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 26px;
+    margin-top:16px;
+    color:var(--muted);
+    font-size:14px;
+  }
+  .contacts span b{ color:var(--text); font-weight:600; }
+
+  section{ margin-bottom:30px; }
+  h2{
+    font-size:16px;
+    text-transform:uppercase;
+    letter-spacing:1.4px;
+    font-weight:700;
+    color:var(--accent);
+    margin-bottom:16px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  h2::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--border);
+  }
+
+  /* Навыки */
+  .skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .skill{
+    background:var(--accent-soft);
+    border:1px solid rgba(77,163,255,0.25);
+    color:var(--text);
+    padding:7px 15px;
+    border-radius:20px;
+    font-size:14px;
+  }
+
+  /* Опыт работы */
+  .job{
+    position:relative;
+    padding-left:24px;
+    padding-bottom:24px;
+    border-left:2px solid var(--border);
+  }
+  .job:last-child{ padding-bottom:0; }
+  .job::before{
+    content:"";
+    position:absolute;
+    left:-7px;
+    top:5px;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 4px rgba(77,163,255,0.15);
+  }
+  .job-top{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:4px;
+  }
+  .job-title{
+    font-size:16px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.4px;
+  }
+  .job-period{
+    color:var(--muted);
+    font-size:13px;
+    white-space:nowrap;
+    padding-top:3px;
+  }
+  .job-company{
+    color:var(--accent);
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  .job ul{ list-style:none; }
+  .job li{
+    position:relative;
+    padding-left:18px;
+    margin-bottom:5px;
+    font-size:15px;
+    color:var(--text);
+  }
+  .job li::before{
+    content:"";
+    position:absolute;
+    left:2px;
+    top:8px;
+    width:6px;
+    height:6px;
+    background:var(--accent);
+    border-radius:50%;
+  }
+
+  /* Образование, языки, доп */
+  .edu-item{ margin-bottom:12px; }
+  .edu-row{ display:flex; gap:14px; align-items:baseline; flex-wrap:wrap; }
+  .edu-year{
+    color:var(--accent);
+    font-weight:700;
+    min-width:52px;
+    font-size:14px;
+  }
+  .edu-name{ font-size:15px; }
+  .edu-sub{ color:var(--muted); font-size:13px; }
+
+  .info-table{ width:100%; border-collapse:collapse; }
+  .info-table td{
+    padding:8px 0;
+    border-bottom:1px solid var(--border);
+    font-size:15px;
+    vertical-align:top;
+  }
+  .info-table td:first-child{
+    color:var(--muted);
+    width:220px;
+  }
+  .info-table tr:last-child td{ border-bottom:none; }
+
+  .lang{ display:flex; align-items:center; gap:10px; }
+  .lang-dot{ width:10px; height:10px; border-radius:50%; background:var(--accent); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>Константин Усов</h1>
+    <div class="desired">Руководитель ИТ подразделения / Проектного офиса</div>
+    <div class="salary">Ожидания по зарплате: от 500 тыс. рублей после налогообложения + годовой бонус</div>
+    <div class="contacts">
+      <span><b>Город:</b> г. Нижний Тагил, Свердловская область</span>
+      <span><b>Телефон:</b> +7 (922) 224-191-6</span>
+      <span><b>Email:</b> usov.ks@yandex.ru</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Основные навыки</h2>
+    <div class="skills">
+      <span class="skill">Проектное управление</span>
+      <span class="skill">Принятие решений</span>
+      <span class="skill">Опыт проектирования архитектуры ПО</span>
+      <span class="skill">Умение организовать автоматизацию бизнес-процессов</span>
+      <span class="skill">Ориентация на сервис</span>
+      <span class="skill">Опыт управления командами разработчиков</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Опыт работы</h2>
+
+    <div class="job">
+      <div class="job-top">
+        <div class="job-title">Руководитель Центра Компетенций</div>
+        <div class="job-period">01.04.2024 — настоящее время</div>
+      </div>
+      <div class="job-company">ООО «НЛМК-Информационные Технологии», Дирекция по развитию, Направление производственных решений</div>
+      <ul>
+        <li>Управление командами разработки, внедрения и поддержки</li>
+        <li>Развитие персонала</li>
+        <li>Реализация проектов Цифровизации производства</li>
+        <li>Наставничество, передача компетенций</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top">
+        <div class="job-title">Руководитель направления — начальник управления</div>
+        <div class="job-period">01.11.2022 — 28.03.2024</div>
+      </div>
+      <div class="job-company">ООО «ЕВРАЗТЕХНИКА ИС», Управление проектов и системного анализа</div>
+      <ul>
+        <li>Руководство проектным офисом</li>
+        <li>Кураторство портфелей проектов</li>
+        <li>Развитие персонала</li>
+        <li>Реализация проектов Цифровизации производства</li>
+        <li>Наставничество, передача компетенций</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top">
+        <div class="job-title">Начальник отдела</div>
+        <div class="job-period">25.01.2022 — 31.10.2022</div>
+      </div>
+      <div class="job-company">ООО «ЕВРАЗТЕХНИКА ИС», Отдел развития информационных систем</div>
+      <ul>
+        <li>Обеспечение проектных команд ИТ-ресурсами</li>
+        <li>Развитие управления производства на основе данных</li>
+        <li>Руководство деятельностью ИТ отдела</li>
+        <li>Реализация проектов Цифровизации производства</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top">
+        <div class="job-title">Начальник отдела</div>
+        <div class="job-period">09.01.2014 — 24.01.2022</div>
+      </div>
+      <div class="job-company">ООО «ЕВРАЗТЕХНИКА», Отдел эксплуатации АСУ прокатного производства и общезаводских систем</div>
+      <ul>
+        <li>Обеспечение плановых показателей в соответствии с SLA</li>
+        <li>Популяризация ИТ технологий в металлургии</li>
+        <li>Руководство деятельностью ИТ отдела</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top">
+        <div class="job-title">Ведущий специалист</div>
+        <div class="job-period">01.09.2012 — 08.01.2014</div>
+      </div>
+      <div class="job-company">ООО «ЕВРАЗТЕХНИКА», Отдел эксплуатации АСУ прокатного производства</div>
+      <ul>
+        <li>Обеспечение бесперебойной работы ИТ оборудования и АСУ</li>
+        <li>Реализация ИТ решений по проектам</li>
+        <li>Работа с технической документацией + разработка</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top">
+        <div class="job-title">Инженер-электроник</div>
+        <div class="job-period">15.10.2008 — 31.08.2012</div>
+      </div>
+      <div class="job-company">ООО «ЕВРАЗТЕХНИКА ИС»… Бюро АСУ сортопрокатного производства</div>
+      <ul>
+        <li>Обеспечение бесперебойной работы ИТ оборудования и АСУ</li>
+        <li>Работа по заявкам пользователей ИТ</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Образование и курсы</h2>
+    <div class="edu-item">
+      <div class="edu-row"><span class="edu-year">2010</span><span class="edu-name">Высшее, «Информатика и Вычислительная техника»</span></div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-row"><span class="edu-year">2016</span><span class="edu-name">ООО «Центр Консалтинга и Аудита»</span></div>
+      <div class="edu-sub" style="padding-left:66px;">«Управленческие навыки»</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-row"><span class="edu-year">2017</span><span class="edu-name">МШУ «Сколково» — Менеджмент</span></div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-row"><span class="edu-year">2020</span><span class="edu-name">ITIL, основы управления ИТ услугами</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Языки</h2>
+    <div class="lang"><span class="lang-dot"></span> Английский — B1</div>
+  </section>
+
+  <section>
+    <h2>Дополнительно</h2>
+    <table class="info-table">
+      <tr><td>Дата рождения</td><td>22.07.1979</td></tr>
+      <tr><td>Семейное положение</td><td>женат, трое детей</td></tr>
+      <tr><td>Водительское удостоверение</td><td>категории B</td></tr>
+    </table>
+  </section>
+
+</div>
+</body>
+</html>
